@@ -17,6 +17,11 @@ func InitLog(fileName string, cfg *viper.Viper) error {
 	return initZapLogger(cfg.GetString("logging.level"))
 }
 
+// InitLogByLevel Init logging
+func InitLogByLevel(level string) error {
+	return initZapLogger(level)
+}
+
 // InitSentry initialize sentry client and log sentry hook
 func InitSentry(options sentry.ClientOptions) {
 	sentrycore, err := getSentryCore(options)

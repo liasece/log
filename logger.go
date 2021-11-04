@@ -175,7 +175,7 @@ func initZapLogger(level string) (err error) {
 }
 
 func init() {
-	consoleCore, err := getConsoleCore(true, "info")
+	consoleCore, err := getConsoleCore(true, "debug")
 	encoder.CheckIfTerminal(os.Stdout)
 	if err == nil {
 		_globalL = zap.New(zapcore.NewTee(consoleCore), zap.AddCaller(), zap.AddCallerSkip(1))
